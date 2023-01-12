@@ -20,7 +20,7 @@ module.exports = {
 
     // Add Linaria loader after babel-loader
     config.module.rules.splice(1, 0, {
-      test: /\.tsx?$/,
+      test: /\.(t|j)sx?$/,
       exclude: /node_modules/,
       use: [
         {
@@ -32,12 +32,14 @@ module.exports = {
                 require.resolve('@babel/preset-env'),
                 require.resolve('@babel/preset-typescript'),
                 require.resolve('@linaria/babel-preset'),
+                require.resolve('@babel/preset-react'),
               ],
             },
           },
         },
       ],
     });
+
 
     // Replace CSS loader
     const cssKey = config.module.rules.findIndex(x => x.test.toString() === "/\\.css$/");

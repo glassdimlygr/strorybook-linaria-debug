@@ -3,17 +3,21 @@ import PropTypes from 'prop-types';
 import './button.css';
 import { styled } from '@linaria/react';
 
+import theme from './vars.json';
 
 const Container = styled.div`
-  border: 3px blue dashed;
+  border: 3px ${theme.color.primary.body.base.value} dashed;
 `;
 
 /**
  * Primary UI component for user interaction
  */
 export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
+  
+  console.log(theme.color.primary.body.base.value);
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
+    <Container>
       <button
         type="button"
         className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
@@ -22,6 +26,7 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
       >
         {label}
       </button>
+      </Container>
   );
 };
 

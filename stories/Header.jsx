@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { styled } from '@linaria/react';
 
 import { Button } from './Button';
 import './header.css';
 
+
+const Container = styled.div`
+  border: 3px blue dashed;
+`;
+
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
+  <Container>
   <header>
     <div className="wrapper">
       <div>
@@ -43,6 +50,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
       </div>
     </div>
   </header>
+  </Container>
 );
 
 Header.propTypes = {
