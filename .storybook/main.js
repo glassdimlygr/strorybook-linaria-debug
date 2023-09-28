@@ -19,9 +19,10 @@ module.exports = {
     config.plugins.push(new MiniCssExtractPlugin({ filename: 'styles.css' }));
 
     // Add Linaria loader after babel-loader
-    config.module.rules.splice(1, 0, {
+    config.module.rules.push({
       test: /\.(t|j)sx?$/,
       exclude: /node_modules/,
+      enforce: 'post',
       use: [
         {
           loader: require.resolve('@linaria/webpack-loader'),
@@ -29,10 +30,7 @@ module.exports = {
             sourceMap: true,
             babelOptions: {
               presets: [
-                require.resolve('@babel/preset-env'),
                 require.resolve('@babel/preset-typescript'),
-                require.resolve('@linaria/babel-preset'),
-                require.resolve('@babel/preset-react'),
               ],
             },
           },
@@ -40,11 +38,10 @@ module.exports = {
       ],
     });
 
-
     // Replace CSS loader
     const cssKey = config.module.rules.findIndex(x => x.test.toString() === "/\\.css$/");
 
-    config.module.rules[cssKey] =       {
+    config.module.rules[cssKey] = {
       test: /\.css$/,
       use: [
         {
@@ -56,7 +53,7 @@ module.exports = {
         },
       ],
     };
-  
+
     return config;
   }
 };

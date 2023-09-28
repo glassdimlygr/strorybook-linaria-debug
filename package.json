@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.20.12",
-    "@linaria/webpack-loader": "^4.1.11",
+    "@linaria/webpack-loader": "^5.0.3",
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
     "@storybook/addon-interactions": "^6.5.15",
@@ -31,8 +31,7 @@
     "webpack": "^5.75.0"
   },
   "dependencies": {
-    "@linaria/babel-preset": "^4.3.3",
-    "@linaria/core": "^4.2.5",
-    "@linaria/react": "^4.3.3"
+    "@linaria/core": "^5.0.2",
+    "@linaria/react": "^5.0.2"
   }
 }
